@@ -2,10 +2,19 @@ import openslide
 import numpy as np
 from tqdm import tqdm
 
+'''
+This script reads the .svs file specified in the img_path variable below and then does 2 things.
+1. Saves a downsampled copy (at 3% the resolution of the original) of the full slide
+2. Makes 10 random crops and saves them.
+
+See here for more on openslide: https://developer.ibm.com/articles/an-automatic-method-to-identify-tissues-from-big-whole-slide-images-pt1/
+And here for some docs: https://openslide.org/api/python/
+'''
+
 patch_name_fmt = 'patch{}_{}.png'
 
 # read image
-img_path = '/Users/user/Desktop/tomac/0c59c32a-ce9a-4557-be21-90d72ddc34b4/TCGA-AU-3779-01Z-00-DX1.4134005A-8A79-46DC-8737-B3C8AAC2DFCA.svs'
+img_path = 'path/to/file.svs'
 img = openslide.OpenSlide(img_path)
 
 
